@@ -1,0 +1,60 @@
+Verna Dorian-Alexandru
+Tema3 Iocla
+Grupa 324CC
+
+Durata de rezolvare a temei: ~8-10 ore
+(imi e greu de spus pentru ca m-am impartit pe mai multe zile)
+
+Mentionez ca am folosit in rezolvare functiile ajutatoare:
+strtok, malloc, strcpy si strlen precum si o serie de variabile
+pe care le-am declarat in section .data si section .bss.
+
+In cadrul programului am implementat 3 functii:
+1) iocla_atoi - in aceasta functie iau stringul ce e dat ca
+parametru, ii aflu lungimea, apoi iterez prin elementele sale
+Folosesc conceptul abc = a * 100 + b * 10 + c. Astfel, Folosesc
+mul pentru a inmulti rezultatul in cadrul unui loop si apoi
+adaug caracterul pe care il scad cu 48 (pentru ca adaugam de
+fapt codul ASCII si nu numarul (cifra) propriu zis). Daca am
+un numar negativ de facut, atunci folosesc imul pentru a-l face
+cu minus, dar pana atunci lucrez cu el ca si cum ar fi un numar
+cu plus.
+2) check_sign - functie care imi verifica daca sirul dat ca
+parametru este doar un simplu semn sau este un numar. In cadrul
+acestei functii compar adresa de la [text + 0] cu semnele date,
+iar daca caracterul este egal si este urmat de terminatorul de
+sir, atunci inseamna ca avem un semn si nu un numar. Functia
+modifica o variabila din section .dat si anume sign. Daca sign
+este 0, atunci parametrul este un numar. Daca sign este 1, atunci
+paramtetrul este doar un semn
+3) create_tree - prima oara in functie preiau parametrul si
+sterg enter-ul de la sfarsit. Apoi preiau primul element din
+sirul in forma prefixata (cu strtok) si aloc radacina. Folosesc
+root din section .bss pentru a retine in el radacina. node il
+folosesc pentru a retine nodul nou alocat, iar parent pentru a
+retine nodul la care adaug fii in cadrul functiei. Cu cat avansez
+in jos pe arbore, adaug in stiva parintii acestia carora le adaug
+fii. Astfel, imi este usor sa ma reintorc la ei cand nu mai am
+unde sa adaug alti fii. In contiunare mai am doua sectiuni in
+functie:
+    - add_left_node - o folosesc pentru a adauga un left child pt 
+parent.
+    - add_right_node - o folosesc pt a adauga un right child pt
+parent
+Daca nodul pe care il adaug la un moment dat este un numar si
+parintele are nod drept, atunci dau pop la parent din stiva pentru
+a ma duce la parintele acestuia sa ii adaug lui un nod drept daca e
+cazul (daca nu are deja - daca are atunci continui sa fac pop si tot
+asa). Dupa ce am adaugat un nod drept trebuie sa vad daca nodul
+adaugat este semn (caz in care trebuie sa ii adaug un nod stang).
+Am ales o implementare iterativa, desi am inteles ca se poate face
+recursiv. Mie mi s-a parut mai intuitiv asa.
+
+Per total chiar a fost o tema buna. Am avut multe de invatat din ea.
+Nu a fost muncitoreasca, in schimb ca dificultate a fost peste cele
+de dinainte. Mi-ar fi placut totusi sa mi se explice de dinainte mai
+bine modurile in care poti realiza o structura de date in assembly.
+Dar per total chiar a fost tare, nu credeam ca o sa fac arbori in
+assembly:)). Si respecte pentru melodia de la final de la checker:)).
+
+Verna Dorian-Alexandru
